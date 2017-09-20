@@ -385,7 +385,7 @@ function template (configuration, data) {
             for example, are especially important.  Please
             <em>don&rsquo;t</em> attach a preprint PDF or article.
             Those best belong on a preprint server, like
-            <a href=http://biorxiv.org target=_blank>bioR&#x1D712;iv</a>.
+            <a href=http://biorxiv.org target=_blank>bioR&chi;iv</a>.
           </p>
 
           <aside class=legal>
