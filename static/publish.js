@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
   addWordCount('safety')
   showFileWarniings()
   configurePatentSearch()
+  addListFilterBoxes()
 })
 
 // Add a button at the end of a <section> to add another
@@ -406,5 +407,35 @@ if (!String.prototype.endsWith) {
     }
     var length = search.length
     return this.substr(position - length, length) === search
+  }
+}
+
+function addListFilterBoxes () {
+  var lists = document.getElementsByClassName('listOfCheckBoxes')
+  for (var index = 0; index < lists.length; index++) {
+    var list = lists[index]
+    var filter = document.createElement('input')
+    filter.type = 'search'
+    filter.placeholder = 'Type here to filter the list below.'
+    filter.addEventListener('input', function (event) {
+      var target = event.target
+      var searchString = target.value.toLowerCase().trim()
+      var children = target.nextSibling.children
+      for (var index = 0; index < children.length; index++) {
+        var li = children[index]
+        var label = li.children[0]
+        var input = label.children[0]
+        var value = input.value.toLowerCase()
+        if (
+          searchString === '' ||
+          value.indexOf(searchString) !== -1
+        ) {
+          li.className = ''
+        } else {
+          li.className = 'hidden'
+        }
+      }
+    })
+    list.parentNode.insertBefore(filter, list)
   }
 }
