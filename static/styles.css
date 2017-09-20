@@ -1,6 +1,8 @@
 /* TODO: restyle <nav> like publicdomainchronicle.org */
 
 html, body {
+  color: rgb(102, 102, 102);
+  font-family: "PT Sans", Helvetica, Arial, Lucida, sans-serif;
   height: 100%;
 }
 
@@ -26,11 +28,6 @@ main {
   padding-bottom: 5rem;
   padding-top: 0.5rem;
   text-align: left;
-}
-
-main p, main li {
-  color: rgb(102, 102, 102);
-  font-family: "PT Sans", Helvetica, Arial, Lucida, sans-serif;
 }
 
 nav {
