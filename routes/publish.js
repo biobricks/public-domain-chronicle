@@ -362,7 +362,7 @@ function template (configuration, data) {
 
           <p>
             Optionally describe any special safety precautions others
-            might like to take when trying and using your invention,
+            might like to take when trying and using your contribution,
             to protect themselves, other people, and the environment.
           </p>
 
@@ -420,8 +420,8 @@ function template (configuration, data) {
 
             <p>
               Which journals do others interested in the area of your
-              invention publish in and read?  Tick the boxes next to
-              the journals most relevant to the field of your invention.
+              contribution publish in and read?  Tick the boxes next to
+              the journals most relevant to the field of your contribution.
               Usually, two or three journals are enough.
             </p>
 
@@ -523,7 +523,7 @@ function template (configuration, data) {
             <h2>Other PDC Publications</h2>
 
             <p>
-              If the invention builds from or refers to previous PDC
+              If your contribution builds from or refers to previous PDC
               publications, copy their cryptographic digests into the
               boxes below.
             </p>
