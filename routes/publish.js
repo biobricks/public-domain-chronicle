@@ -277,7 +277,7 @@ function template (configuration, data) {
       <form method=post action=/publish enctype=multipart/form-data>
         <input type=hidden name=version value=1.0.0>
 
-        <section class=optional>
+        <section class=optional id=contributor>
           <h1>Contributor</h1>
 
           <aside class=legal>
@@ -288,7 +288,7 @@ function template (configuration, data) {
             and any attachments, should be your own work.
           </aside>
 
-          <section>
+          <section id=name>
             <h2>Name</h2>
 
             <p>Please provide your full name.</p>
@@ -301,7 +301,7 @@ function template (configuration, data) {
             <input name=name type=text autocomplete=name>
           </section>
 
-          <section>
+          <section id=affiliation>
             <h2>Affiliation</h2>
 
             <p>
@@ -319,7 +319,7 @@ function template (configuration, data) {
           </section>
         </section>
 
-        <section class=required>
+        <section class=required id=title>
           <h2>Title</h2>
 
           <p>
@@ -404,7 +404,7 @@ function template (configuration, data) {
           </ul>
         </section>
 
-        <section class=recommended>
+        <section id=metadata class=recommended>
           <h1>Metadata</h1>
 
           <p>
@@ -415,7 +415,7 @@ function template (configuration, data) {
             a haystack into a useful record for reseachers.
           </p>
 
-          <section>
+          <section id=journals>
             <h2>Journals</h2>
 
             <p>
@@ -425,7 +425,7 @@ function template (configuration, data) {
               Usually, two or three journals are enough.
             </p>
 
-            <ul id=journals class=listOfCheckBoxes>
+            <ul class=listOfCheckBoxes>
               ${data.journals.map(function (journal) {
                 return html`
                 <li>
@@ -442,7 +442,7 @@ function template (configuration, data) {
             </ul>
           </section>
 
-          <section>
+          <section id=aaasaffiliates>
             <h2>AAAS Affiliates</h2>
 
             <p>
@@ -453,7 +453,7 @@ function template (configuration, data) {
             </p>
 
             <!-- TODO: filter search box for lists of checkboxes -->
-            <ul id=aaasaffiliates class=listOfCheckBoxes>
+            <ul class=listOfCheckBoxes>
               ${data.aaas.map(function (affiliate) {
                 return html`
                 <li>
@@ -470,7 +470,7 @@ function template (configuration, data) {
             </ul>
           </section>
 
-          <section>
+          <section id=gordonresearchconferences>
             <h2>Gordon Research Conferences Topics</h2>
 
             <p>
@@ -479,7 +479,7 @@ function template (configuration, data) {
               Usually, two or three are enough.
             </p>
 
-            <ul id=gordonresearchconferences class=listOfCheckBoxes>
+            <ul class=listOfCheckBoxes>
               ${data.grc.map(function (topic) {
                 return html`
                 <li>
