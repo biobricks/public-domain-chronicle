@@ -198,6 +198,16 @@ module.exports = function (request, response, configuration) {
       }
       </ul>
 
+      <ul id=naturesubjects>
+      ${
+        data.metadata &&
+        data.metadata.naturesubjects &&
+        data.metadata.naturesubjects.map(function (subject) {
+          return html`<li>Subject Keyword: ${escape(subject)}</li>`
+        })
+      }
+      </ul>
+
       <ul id=aaasaffiliates>
       ${
         data.metadata &&

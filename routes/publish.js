@@ -53,12 +53,17 @@ Object.keys(GRC_TOPICS).forEach(function (year) {
   })
 })
 
+var SUBJECTS = require('nature-subjects').sort(function (a, b) {
+  return a.toLowerCase().localeCompare(b.toLowerCase())
+})
+
 function get (request, response, configuration, errors) {
   response.setHeader('Content-Type', 'text/html; charset=UTF-8')
   response.end(
     template(configuration, {
       journals: JOURNALS,
       aaas: AAAS_AFFILIATES,
+      subjects: SUBJECTS,
       grc: TOPICS,
       RECAPTCHA_PUBLIC: configuration.recaptcha.public,
       errors: errors,
@@ -215,6 +220,7 @@ var DELETE_IF_EMPTY = ['name', 'affiliation', 'safety']
 var ARRAYS = [
   'ussubjectmatter',
   'journals',
+  'naturesubjects',
   'classifications',
   'gordonresearchconferences',
   'aaasaffiliates'
@@ -479,6 +485,31 @@ function template (configuration, data) {
                 `
               })}
             </ul>
+          </section>
+
+          <section id=naturesubjects>
+            <h2>Subject Keywords</h2>
+
+            <p>
+              Which of the following subject keywords describe the area of your
+              contribution? Usually, three or four are enough.
+            </p>
+
+            <ul class=listOfCheckBoxes>
+              ${data.subjects.map(function (subject) {
+                return html`
+                <li>
+                  <label>
+                    <input
+                        name=naturesubjects[]
+                        type=checkbox
+                        value="${escape(subject.toLowerCase())}">
+                    ${escape(subject)}
+                  </label>
+                </li>
+                `
+              })}
+            </ul
           </section>
 
           <section id=aaasaffiliates>
