@@ -42,6 +42,8 @@ var JOURNALS = require('pct-minimum-documentation')
   })
   .sort()
 
+var CATEGORIES = require('us-patent-categories')
+
 var AAAS_AFFILIATES = require('aaas-affiliates')
 
 var TOPICS = []
@@ -211,6 +213,7 @@ function redirectTo (location) {
 var DELETE_IF_EMPTY = ['name', 'affiliation', 'safety']
 
 var ARRAYS = [
+  'ussubjectmatter',
   'journals',
   'classifications',
   'gordonresearchconferences',
@@ -414,6 +417,42 @@ function template (configuration, data) {
             metadata to your publication transforms it from a needle in
             a haystack into a useful record for reseachers.
           </p>
+
+          <section id=ussubjectmatter>
+            <h2>Subject Matter Category</h2>
+
+            <p>
+              Which of the follow best describes your contribution?
+              Usually, only one should match.  Choose the closest.
+            </p>
+
+            <ul class=listOfCheckBoxes>
+              ${CATEGORIES.map(function (category) {
+                return html`
+                <li>
+                  <label>
+                    <input
+                        name=ussubjectmatter[]
+                        type=checkbox
+                        value="${escape(category.term)}">
+                    ${escape(category.term)}
+                    ${category.aka && (
+                      '(or ' +
+                      category.aka
+                        .map(function (term) {
+                          return escape('"' + term + '"')
+                        })
+                        .join(', ') +
+                      ')'
+                    )}
+                    &mdash;
+                    ${escape(category.definition)}
+                  </label>
+                </li>
+                `
+              })}
+            </ul>
+          </section>
 
           <section id=journals>
             <h2>Journals</h2>

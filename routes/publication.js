@@ -178,6 +178,16 @@ module.exports = function (request, response, configuration) {
 
       <h2>Metadata</h2>
 
+      <ul id=ussubjectmatter>
+      ${
+        data.metadata &&
+        data.metadata.ussubjectmatter &&
+        data.metadata.ussubjectmatter.map(function (category) {
+          return html`<li>Subject Matter Category: ${escape(category)}</li>`
+        })
+      }
+      </ul>
+
       <ul id=journals>
       ${
         data.metadata &&
