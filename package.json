@@ -30,7 +30,7 @@
     "run-parallel": "^1.1.6",
     "run-series": "^1.1.4",
     "semver": "^5.4.1",
-    "send": "^0.15.6",
+    "send": "^0.16.1",
     "simple-concat": "^1.0.0",
     "sodium-native": "^1.10.3",
     "split2": "^2.1.1",
