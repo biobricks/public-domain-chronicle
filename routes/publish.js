@@ -511,7 +511,7 @@ function template (configuration, data) {
                 </li>
                 `
               })}
-            </ul
+            </ul>
           </section>
 
           <section id=aaasaffiliates>
