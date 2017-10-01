@@ -283,7 +283,7 @@ function template (configuration, data) {
         <p class=bad>The submitted publication had invalid input.</p>
       `}
 
-      <form method=post action=/publish enctype=multipart/form-data>
+      <form method=post action=publish enctype=multipart/form-data>
         <input type=hidden name=version value=1.0.0>
 
         <section class=optional id=contributor>
