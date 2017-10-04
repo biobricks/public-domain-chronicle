@@ -40,10 +40,10 @@ var timestampPath = require('./util/timestamp-path')
 var url = require('url')
 var xtend = require('xtend')
 
-var timestampSchema = latest(require('./schemas/timestamp'))
+var timestampSchema = latest(require('pdc-timestamp-schema'))
 
 var validatePublication = new AJV({allErrors: true})
-  .compile(latest(require('./schemas/publication')))
+  .compile(latest(require('pdc-publication-schema')))
 
 var validateTimestamp = new AJV({allErrors: true})
   .compile(timestampSchema)

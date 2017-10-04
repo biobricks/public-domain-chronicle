@@ -14,10 +14,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
  */
 
-var GRC_TOPICS = require('gordon-research-conference-topics')
 var Busboy = require('busboy')
 var FormData = require('form-data')
+var GRC_TOPICS = require('gordon-research-conference-topics')
 var concat = require('concat-stream')
+var displayParagraphs = require('./display-paragraphs')
 var escape = require('./escape')
 var html = require('./html')
 var https = require('https')
@@ -33,8 +34,7 @@ var head = require('./partials/head')
 var header = require('./partials/header')
 var nav = require('./partials/nav')
 
-var declaration = latest(require('../documents/declaration/declaration.json'))
-var license = latest(require('../documents/license/license.json'))
+var grant = latest(require('public-science-grant'))
 
 var JOURNALS = require('pct-minimum-documentation')
   .map(function (element) {
@@ -66,9 +66,7 @@ function get (request, response, configuration, errors) {
       subjects: SUBJECTS,
       grc: TOPICS,
       RECAPTCHA_PUBLIC: configuration.recaptcha.public,
-      errors: errors,
-      license: license,
-      declaration: declaration
+      errors: errors
     })
   )
 }
@@ -254,8 +252,6 @@ function normalize (record) {
 }
 
 function template (configuration, data) {
-  var license = data.license
-  var declaration = data.declaration
   return html`
 <!doctype html>
 <html lang=en>
@@ -614,50 +610,19 @@ function template (configuration, data) {
           </section>
         </section>
 
-        <section id=declaration class=required>
-          <h2>${escape(declaration.title)}</h2>
-          <p class=version>Version ${escape(declaration.version)}</p>
-
-          <p class=preamble>${escape(declaration.preamble)}</p>
-          <ol>
-            ${declaration.items.map(function (item) {
-              return html`<li>${escape(item)}</li>`
-            })}
-          </ol>
-
+        <section id=grant class=required>
+          <h2>${escape(grant.title)}</h2>
+          <p class=version>Version ${escape(grant.version)}</p>
+          ${displayParagraphs(grant.paragraphs)}
           <label>
             <input
-                id=declarationButton
-                name=declaration
+                name=grant
                 type=checkbox
-                value="${escape(declaration.version)}"
+                value="${escape(grant.version)}"
                 required>
-            Check this box to make the declaration above.
+            Check this box to make the grant for your submission.
           </label>
         </section>
-
-        ${license && html`
-        <section id=license class=required>
-          <h2>${escape(license.title)}</h2>
-          <p class=version>Version ${escape(license.version)}</p>
-
-          <p class=preamble>${escape(license.preamble)}</p>
-          <ol>
-            ${license.items.map(function (item) {
-              return html`<li>${escape(item)}</li>`
-            })}
-          </ol>
-
-          <label>
-            <input
-                name=license
-                type=checkbox
-                value="${escape(license.version)}"
-                required>
-            Check this box to grant the license above.
-          </label>
-        </section>
-        `}
 
         <section id=submit>
           <h2>Publish</h2>

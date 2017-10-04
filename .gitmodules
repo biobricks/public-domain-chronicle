@@ -1,6 +1,0 @@
-[submodule "documents/declaration"]
-	path = documents/declaration
-	url = https://github.com/biobricks/pdc-declaration
-[submodule "documents/license"]
-	path = documents/license
-	url = https://github.com/biobricks/pdc-license
