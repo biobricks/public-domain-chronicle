@@ -13,7 +13,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
  */
-var serveDocument = require('./serve-document')
 var serveFile = require('./serve-file')
 var serveAllFiles = require('./serve-all-files')
 
@@ -45,5 +44,4 @@ routes.set(
 
 routes.set('/ipc', require('./ipc'))
 
-routes.set('/declaration', serveDocument('declaration'))
-routes.set('/license', serveDocument('license'))
+routes.set('/grant', require('./grant'))

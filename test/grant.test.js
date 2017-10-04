@@ -18,34 +18,10 @@ var http = require('http')
 var server = require('./server')
 var tape = require('tape')
 
-tape('GET /declaration TEXT', function (test) {
+tape('GET /grant JSON', function (test) {
   server(function (port, done) {
     var request = {
-      path: '/declaration',
-      port: port,
-      headers: {
-        accept: 'text/plain'
-      }
-    }
-    http.get(request, function (response) {
-      test.equal(
-        response.statusCode, 200,
-        'responds 200'
-      )
-      test.equal(
-        response.headers['content-type'], 'text/plain; charset=UTF-8',
-        'Content-Type: text/plain; charset=UTF-8'
-      )
-      done()
-      test.end()
-    })
-  })
-})
-
-tape('GET /declaration JSON', function (test) {
-  server(function (port, done) {
-    var request = {
-      path: '/declaration',
+      path: '/grant',
       port: port,
       headers: {
         accept: 'application/json'
@@ -66,10 +42,53 @@ tape('GET /declaration JSON', function (test) {
   })
 })
 
-tape('GET /declaration HTML', function (test) {
+tape('GET /grant?version={valid} JSON', function (test) {
   server(function (port, done) {
     var request = {
-      path: '/declaration',
+      path: '/grant?version=1.0.0',
+      port: port,
+      headers: {
+        accept: 'application/json'
+      }
+    }
+    http.get(request, function (response) {
+      test.equal(
+        response.statusCode, 200,
+        'responds 200'
+      )
+      test.equal(
+        response.headers['content-type'], 'application/json',
+        'Content-Type: application/json'
+      )
+      done()
+      test.end()
+    })
+  })
+})
+
+tape('GET /grant?version={invalid} JSON', function (test) {
+  server(function (port, done) {
+    var request = {
+      path: '/grant?version=100.100.100',
+      port: port,
+      headers: {
+        accept: 'application/json'
+      }
+    }
+    http.get(request, function (response) {
+      test.equal(
+        response.statusCode, 404,
+        'responds 404'
+      )
+      done()
+      test.end()
+    })
+  })
+})
+tape('GET /grant HTML', function (test) {
+  server(function (port, done) {
+    var request = {
+      path: '/grant',
       port: port,
       headers: {
         accept: 'text/html'
@@ -90,10 +109,10 @@ tape('GET /declaration HTML', function (test) {
   })
 })
 
-tape('GET /declaration XML', function (test) {
+tape('GET /grant XML', function (test) {
   server(function (port, done) {
     var request = {
-      path: '/declaration',
+      path: '/grant',
       port: port,
       headers: {
         accept: 'application/xml'
@@ -110,11 +129,11 @@ tape('GET /declaration XML', function (test) {
   })
 })
 
-tape('DELETE /declaration', function (test) {
+tape('DELETE /grant', function (test) {
   server(function (port, done) {
     var request = {
       method: 'DELETE',
-      path: '/declaration',
+      path: '/grant',
       port: port
     }
     http.get(request, function (response) {

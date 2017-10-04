@@ -16,7 +16,10 @@ limitations under the License.
 
 var semver = require('semver')
 
-module.exports = function (versions) {
-  var latest = semver.maxSatisfying(Object.keys(versions), '*')
-  return versions[latest]
+module.exports = function (object) {
+  var versions = Object.keys(object).sort(semver.rcompare)
+  var latestVersion = versions[0]
+  var latest = object[latestVersion]
+  latest.version = latestVersion
+  return latest
 }

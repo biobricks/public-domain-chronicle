@@ -256,10 +256,7 @@ module.exports = function (request, response, configuration) {
           <th>Schema</th><td>${escape(data.version)}</td>
         </tr>
         <tr>
-          <th>Declaration</th><td>${escape(data.declaration)}</td>
-        </tr>
-        <tr>
-          <th>License</th><td>${escape(data.license)}</td>
+          <th>Grant</th><td>${escape(data.grant)}</td>
         </tr>
       </table>
 

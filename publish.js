@@ -38,8 +38,8 @@ var through2 = require('through2')
 var timestampPath = require('./util/timestamp-path')
 var uuid = require('uuid/v4')
 
-var publicationSchema = latest(require('./schemas/publication'))
-var timestampSchema = latest(require('./schemas/timestamp'))
+var publicationSchema = latest(require('pdc-publication-schema'))
+var timestampSchema = latest(require('pdc-timestamp-schema'))
 
 var validatePublication = new AJV({allErrors: true})
   .compile(publicationSchema)
@@ -194,7 +194,7 @@ module.exports = function (configuration, log, callback) {
             stringify({
               timestamp: timestamp,
               signature: encoding.encode(signature),
-              version: timestampSchema.properties.version.constant
+              version: timestampSchema.properties.version.const
             }),
             done
           )
