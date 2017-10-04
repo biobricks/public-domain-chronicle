@@ -22,8 +22,6 @@ If you're not a Node.js person, don't sweat.  We've kept the project intentional
 # Clone the source code.
 git clone https://github.com/biobricks/public-domain-chronicle pdc
 cd pdc
-# Clone submodules.
-git submodule update --init
 # With Node.js and npm installed
 npm install
 npm run testserver
