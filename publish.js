@@ -45,6 +45,7 @@ var validatePublication = new AJV({allErrors: true})
   .compile(publicationSchema)
 
 // TODO: Delete attachment files in /tmp for invalid publications.
+// TODO: republish publications on any valid schema
 
 // Create a writable stream that accepts one or more attachment chunks,
 // followed by a publication chunk, and writes files and a signed
