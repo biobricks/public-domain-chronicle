@@ -22,7 +22,7 @@ module.exports = function () {
         <li><a href=publish>Publish</a></li>
         <li><a href=accessions>Accessions</a></li>
         <li><a href=rss.xml>RSS Feed</a></li>
-        <li><a href=grant>Public Science Grant</a></li>
+        <li><a href=legal-tool>Legal Tool</a></li>
       </ul>
     </nav>
   `

@@ -24,7 +24,7 @@ module.exports = function (title) {
   form.append('finding', 'Pat head. Rub stomach. Eureka!')
   form.append('journals[]', 'Nature')
   form.append('safety', 'Watch your elbows.')
-  form.append('grant', '1.0.0')
+  form.append('legal', '1.0.0')
   form.append('g-recaptcha-response', 'test')
   return form
 }

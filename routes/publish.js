@@ -34,7 +34,7 @@ var head = require('./partials/head')
 var header = require('./partials/header')
 var nav = require('./partials/nav')
 
-var grant = latest(require('public-science-grant'))
+var legalTool = latest(require('pdc-legal-tool'))
 
 var JOURNALS = require('pct-minimum-documentation')
   .map(function (element) {
@@ -612,17 +612,17 @@ function template (configuration, data) {
           </section>
         </section>
 
-        <section id=grant class=required>
-          <h2>${escape(grant.title)}</h2>
-          <p class=version>Version ${escape(grant.version)}</p>
-          ${displayParagraphs(grant.paragraphs)}
+        <section id=legal class=required>
+          <h2>${escape(legalTool.title)}</h2>
+          <p class=version>Version ${escape(legalTool.version)}</p>
+          ${displayParagraphs(legalTool.paragraphs)}
           <label>
             <input
-                name=grant
+                name=legal
                 type=checkbox
-                value="${escape(grant.version)}"
+                value="${escape(legalTool.version)}"
                 required>
-            Check this box to make the grant for your submission.
+            Check this box to apply the legal tool to your submission.
           </label>
         </section>
 

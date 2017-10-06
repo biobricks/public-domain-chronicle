@@ -44,4 +44,4 @@ routes.set(
 
 routes.set('/ipc', require('./ipc'))
 
-routes.set('/grant', require('./grant'))
+routes.set('/legal-tool', require('./legal-tool'))

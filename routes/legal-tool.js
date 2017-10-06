@@ -26,7 +26,7 @@ var head = require('./partials/head')
 var header = require('./partials/header')
 var nav = require('./partials/nav')
 
-var grant = require('public-science-grant')
+var legalTool = require('pdc-legal-tool')
 
 module.exports = function (request, response, configuration) {
   if (request.method === 'GET') {
@@ -38,8 +38,8 @@ module.exports = function (request, response, configuration) {
       response.end()
     } else {
       var requestedVersion = request.query.version
-        ? grant[request.query.version]
-        : latest(grant)
+        ? legalTool[request.query.version]
+        : latest(legalTool)
       if (!requestedVersion) {
         response.statusCode = 404
         response.end()

@@ -18,10 +18,10 @@ var http = require('http')
 var server = require('./server')
 var tape = require('tape')
 
-tape('GET /grant JSON', function (test) {
+tape('GET /legal-tool JSON', function (test) {
   server(function (port, done) {
     var request = {
-      path: '/grant',
+      path: '/legal-tool',
       port: port,
       headers: {
         accept: 'application/json'
@@ -42,10 +42,10 @@ tape('GET /grant JSON', function (test) {
   })
 })
 
-tape('GET /grant?version={valid} JSON', function (test) {
+tape('GET /legal-tool?version={valid} JSON', function (test) {
   server(function (port, done) {
     var request = {
-      path: '/grant?version=1.0.0',
+      path: '/legal-tool?version=1.0.0',
       port: port,
       headers: {
         accept: 'application/json'
@@ -66,10 +66,10 @@ tape('GET /grant?version={valid} JSON', function (test) {
   })
 })
 
-tape('GET /grant?version={invalid} JSON', function (test) {
+tape('GET /legal-tool?version={invalid} JSON', function (test) {
   server(function (port, done) {
     var request = {
-      path: '/grant?version=100.100.100',
+      path: '/legal-tool?version=100.100.100',
       port: port,
       headers: {
         accept: 'application/json'
@@ -85,10 +85,10 @@ tape('GET /grant?version={invalid} JSON', function (test) {
     })
   })
 })
-tape('GET /grant HTML', function (test) {
+tape('GET /legal-tool HTML', function (test) {
   server(function (port, done) {
     var request = {
-      path: '/grant',
+      path: '/legal-tool',
       port: port,
       headers: {
         accept: 'text/html'
@@ -109,10 +109,10 @@ tape('GET /grant HTML', function (test) {
   })
 })
 
-tape('GET /grant XML', function (test) {
+tape('GET /legal-tool XML', function (test) {
   server(function (port, done) {
     var request = {
-      path: '/grant',
+      path: '/legal-tool',
       port: port,
       headers: {
         accept: 'application/xml'
@@ -129,11 +129,11 @@ tape('GET /grant XML', function (test) {
   })
 })
 
-tape('DELETE /grant', function (test) {
+tape('DELETE /legal-tool', function (test) {
   server(function (port, done) {
     var request = {
       method: 'DELETE',
-      path: '/grant',
+      path: '/legal-tool',
       port: port
     }
     http.get(request, function (response) {
