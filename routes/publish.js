@@ -251,6 +251,8 @@ function normalize (record) {
   })
 }
 
+// TODO: search interface to find related contributions by submitter name
+
 function template (configuration, data) {
   return html`
 <!doctype html>
