@@ -286,6 +286,12 @@ function template (configuration, data) {
       <aside class=legal>
         Do not break the law, any institutional policy, or any contract
         by publishing in PDC.
+        See
+        <a
+            target=_blank
+            href=https://publicdomainchronicle.org/contribute
+          >PDC&rsquo;s contributor guide</a>
+        for more information.
       </aside>
 
       ${data.errors && html`
