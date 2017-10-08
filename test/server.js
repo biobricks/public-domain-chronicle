@@ -39,7 +39,8 @@ module.exports = function (callback) {
           public: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
           secret: '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe'
         },
-        stampery: false
+        stampery: false,
+        feedback: true
       }
       var log = pino({}, devNull())
       var server = http.createServer(makeHandler(configuration, log))

@@ -27,6 +27,7 @@ var methodNotAllowed = require('./method-not-allowed')
 var parse = require('json-parse-errback')
 var publish = require('../publish')
 var pump = require('pump')
+var saveFeedback = require('../util/save-feedback')
 var through2 = require('through2')
 
 var footer = require('./partials/footer')
@@ -84,6 +85,7 @@ function post (request, response, configuration) {
     return
   }
   var fields = {}
+  var feedback
   var through = through2.obj()
   pump(
     through,
@@ -113,6 +115,8 @@ function post (request, response, configuration) {
           } else {
             fields[field] = [value]
           }
+        } else if (configuration.feedback && field === 'feedback') {
+          feedback = value
         } else {
           fields[field] = value
         }
@@ -144,6 +148,13 @@ function post (request, response, configuration) {
               through.end()
             } else {
               normalize(fields)
+              saveFeedback(configuration.directory, [
+                'Name: ' + JSON.stringify(fields.name || 'none'),
+                'Affiliation: ' + JSON.stringify(fields.affiliation || 'none'),
+                'Title: ' + fields.title,
+                'Feedback: ' + feedback,
+                '---'
+              ].join('\n') + '\n')
               through.write(fields)
               through.end()
             }
@@ -625,6 +636,16 @@ function template (configuration, data) {
             Check this box to apply the legal tool to your submission.
           </label>
         </section>
+
+        ${configuration.feedback && html`
+        <section id=feedback class=optional>
+          <h2>Feedback</h2>
+          <p>
+            How could we make this form easier to use?
+          </p>
+          <textarea name=feedback rows=5></textarea>
+        </section>
+        `}
 
         <section id=submit>
           <h2>Publish</h2>

@@ -66,7 +66,7 @@
     "nsp": "nsp check",
     "coverage": "NODE_ENV=test istanbul cover -- tape test/*.test.js",
     "test": "NODE_ENV=test tape test/*.test.js",
-    "testserver": "NODE_ENV=test BASE_HREF=http://localhost:8080/ RECAPTCHA_PUBLIC=6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI RECAPTCHA_SECRET=6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe node server.js | tee server.log",
+    "testserver": "NODE_ENV=test BASE_HREF=http://localhost:8080/ RECAPTCHA_PUBLIC=6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI RECAPTCHA_SECRET=6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe SOLICIT_FEEDBACK=1 node server.js 2>&1 | tee -a server.log",
     "licenses": "licensee --errors-only",
     "precommit": "lint-staged"
   },

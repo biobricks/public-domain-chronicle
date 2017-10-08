@@ -48,6 +48,8 @@ var REPLICATION_INTERVAL = ENV.REPLICATION_INTERVAL
   ? parseInt(ENV.REPLICATION_INTERVAL)
   : 3600000 // hourly
 
+var SOLICIT_FEEDBACK = !!ENV.SOLICIT_FEEDBACK
+
 var log = pino({name: NAME + '@' + VERSION})
 
 initialize(DIRECTORY, function (error, keypair) {
@@ -70,7 +72,8 @@ initialize(DIRECTORY, function (error, keypair) {
           user: STAMPERY_USER,
           password: STAMPERY_PASSWORD
         }
-        : false
+        : false,
+      feedback: SOLICIT_FEEDBACK
     }
     var requestHandler = makeHandler(configuration, log)
     var server = http.createServer(requestHandler)
