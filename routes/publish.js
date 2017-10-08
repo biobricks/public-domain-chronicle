@@ -364,9 +364,10 @@ function template (configuration, data) {
           <h2>Finding</h2>
 
           <p>
-            Describe what you&rsquo;ve found, and explain the best way
-            that someone in your field can use it themselves.  Feel free
-            to use multiple paragraphs if necessary.
+            Describe what you&rsquo;ve found. Feel free to put it just
+            as you would to a colleague in your field, to make clear to
+            them what&rsquo;s new, and how it&rsquo;s useful.
+            Feel free to use multiple paragraphs if necessary.
           </p>
 
           <aside class=legal>
