@@ -43,7 +43,13 @@ var JOURNALS = require('pct-minimum-documentation')
   })
   .sort()
 
+var CATEGORY_ORDER = [
+  'composition of matter', 'process', 'machine', 'manufacture'
+]
 var CATEGORIES = require('us-patent-categories')
+  .sort(function (a, b) {
+    return CATEGORY_ORDER.indexOf(a.term) - CATEGORY_ORDER.indexOf(b.term)
+  })
 
 var AAAS_AFFILIATES = require('aaas-affiliates')
 
@@ -449,7 +455,7 @@ function template (configuration, data) {
               Usually, only one should match.  Choose the closest.
             </p>
 
-            <ul class=listOfCheckBoxes>
+            <ul class=shortListOfCheckBoxes>
               ${CATEGORIES.map(function (category) {
                 return html`
                 <li>

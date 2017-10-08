@@ -114,11 +114,15 @@ td {
   background-color: rgb(255, 200, 200);
 }
 
+.listOfCheckBoxes,
+.shortListOfCheckBoxes {
+  list-style-type: none;
+  padding: 0;
+}
+
 .listOfCheckBoxes {
   height: 15rem;
-  list-style-type: none;
   overflow-y: scroll;
-  padding: 0;
 }
 
 form section {
