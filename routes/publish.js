@@ -160,7 +160,9 @@ function post (request, response, configuration) {
                 'Title: ' + fields.title,
                 'Feedback: ' + feedback,
                 '---'
-              ].join('\n') + '\n')
+              ].join('\n') + '\n', function (error) {
+                if (error) request.log.error(error)
+              })
               through.write(fields)
               through.end()
             }
