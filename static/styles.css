@@ -23,9 +23,31 @@ main {
   display: inline-block;
   flex: 1 0 auto;
   margin: 0 auto;
+  max-width: 40rem;
   padding-bottom: 5rem;
   padding-top: 0.5rem;
   text-align: left;
+}
+
+footer[role=contentinfo] {
+  background: #eee;
+  color: white;
+  font-size: 80%;
+  margin: 1rem auto 0 auto;
+  padding-top: 1rem;
+  text-align: right;
+  width: 100%;
+}
+
+footer[role=contentinfo] section {
+  color: rgb(102, 102, 102);
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+footer[role=contentinfo] section p {
+  text-align: right;
 }
 
 nav {

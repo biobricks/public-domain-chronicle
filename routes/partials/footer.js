@@ -16,5 +16,17 @@ limitations under the License.
 var html = require('../html')
 
 module.exports = function () {
-  return html`<footer role=contentinfo></footer>`
+  return html`
+    <footer role=contentinfo>
+      <section>
+        <p>
+          The <a href=https://biobricks.org>BioBricks Foundation</a>
+          hosts this PDC network server.
+        </p>
+      </section>
+      <section>
+        <p><a href=https://biobricks.org/dmca-takedown/>DMCA Policy</a></p>
+      </section>
+    </footer>
+  `
 }
