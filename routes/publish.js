@@ -539,7 +539,6 @@ function template (configuration, data) {
               Usually, one or two are enough.
             </p>
 
-            <!-- TODO: filter search box for lists of checkboxes -->
             <ul class=listOfCheckBoxes>
               ${data.aaas.map(function (affiliate) {
                 return html`
