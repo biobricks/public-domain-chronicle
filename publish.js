@@ -22,7 +22,6 @@ var encoding = require('./encoding')
 var flushWriteStream = require('flush-write-stream')
 var fs = require('fs')
 var https = require('https')
-var latest = require('./latest')
 var mkdirp = require('mkdirp')
 var once = require('once')
 var parse = require('json-parse-errback')
@@ -32,20 +31,41 @@ var recordDirectoryPath = require('./util/record-directory-path')
 var recordPath = require('./util/record-path')
 var runParallel = require('run-parallel')
 var runSeries = require('run-series')
+var semver = require('semver')
 var sodium = require('sodium-native')
 var stringify = require('json-stable-stringify')
 var through2 = require('through2')
 var timestampPath = require('./util/timestamp-path')
 var uuid = require('uuid/v4')
 
-var publicationSchema = latest(require('pdc-publication-schema'))
-var timestampSchema = latest(require('pdc-timestamp-schema'))
+var ajv = new AJV({allErrors: true})
 
-var validatePublication = new AJV({allErrors: true})
-  .compile(publicationSchema)
+var publicationValidators = validatorsFor(require('pdc-publication-schema'))
+var timestampValidators = validatorsFor(require('pdc-timestamp-schema'))
+
+function validatorsFor (schema) {
+  return Object.keys(schema)
+    .sort(semver.rcompare)
+    .map(function (version) {
+      return {
+        version: version,
+        validate: ajv.compile(schema[version])
+      }
+    })
+}
+
+function validatePublication (publication) {
+  var validator = publicationValidators.find(function (validator) {
+    return validator.version === publication.version
+  })
+  if (!validator) {
+    return ['Unknown schema version: ' + publication.version]
+  }
+  validator.validate(publication)
+  return validator.validate.errors || []
+}
 
 // TODO: Delete attachment files in /tmp for invalid publications.
-// TODO: republish publications on any valid schema
 
 // Create a writable stream that accepts one or more attachment chunks,
 // followed by a publication chunk, and writes files and a signed
@@ -154,10 +174,11 @@ module.exports = function (configuration, log, callback) {
       })
       .sort()
     log.info('publication', publication)
-    publication.version = '1.0.0'
-    validatePublication(publication)
-    var validationErrors = validatePublication.errors
-    if (validationErrors) {
+    if (!publication.version) {
+      publication.version = publicationValidators[0].version
+    }
+    var validationErrors = validatePublication(publication)
+    if (validationErrors.length) {
       log.info('validationErrors', validationErrors)
       var validationError = new Error('Invalid input')
       validationError.validationErrors = validationErrors
@@ -195,7 +216,7 @@ module.exports = function (configuration, log, callback) {
             stringify({
               timestamp: timestamp,
               signature: encoding.encode(signature),
-              version: timestampSchema.properties.version.const
+              version: timestampValidators[0].version
             }),
             done
           )
