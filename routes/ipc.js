@@ -22,7 +22,7 @@ module.exports = function (request, response, configuration) {
     var search = request.query.search
     if (search) {
       http.get({
-        host: 'ipc.kemitchell.com',
+        host: 'ipc.publicdomainchronicle.org',
         path: (
           '/classifications' +
           '?search=' + encodeURIComponent(search) +
