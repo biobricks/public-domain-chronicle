@@ -301,7 +301,7 @@ function template (configuration, data) {
       <form method=post action=publish enctype=multipart/form-data>
         <input type=hidden name=version value=1.0.0>
 
-        <section class=optional id=contributor>
+        <section id=contributor>
           <h1>Contributor</h1>
 
           <aside class=legal>
@@ -312,7 +312,7 @@ function template (configuration, data) {
             and any attachments, should be your own work.
           </aside>
 
-          <section id=name>
+          <section id=name class=optional>
             <h2>Name</h2>
 
             <p>Please provide your full name.</p>
@@ -325,7 +325,7 @@ function template (configuration, data) {
             <input name=name type=text autocomplete=name>
           </section>
 
-          <section id=affiliation>
+          <section id=affiliation class=optional>
             <h2>Affiliation</h2>
 
             <p>
@@ -430,7 +430,7 @@ function template (configuration, data) {
           </ul>
         </section>
 
-        <section id=metadata class=recommended>
+        <section id=metadata>
           <h1>Metadata</h1>
 
           <p>
@@ -441,7 +441,7 @@ function template (configuration, data) {
             a haystack into a useful record for reseachers.
           </p>
 
-          <section id=ussubjectmatter>
+          <section id=ussubjectmatter class=recommended>
             <h2>Subject Matter Category</h2>
 
             <p>
@@ -477,7 +477,7 @@ function template (configuration, data) {
             </ul>
           </section>
 
-          <section id=journals>
+          <section id=journals class=recommended>
             <h2>Journals</h2>
 
             <p>
@@ -504,7 +504,7 @@ function template (configuration, data) {
             </ul>
           </section>
 
-          <section id=naturesubjects>
+          <section id=naturesubjects class=recommended>
             <h2>Subject Keywords</h2>
 
             <p>
@@ -529,7 +529,7 @@ function template (configuration, data) {
             </ul>
           </section>
 
-          <section id=aaasaffiliates>
+          <section id=aaasaffiliates class=recommended>
             <h2>AAAS Affiliates</h2>
 
             <p>
@@ -557,7 +557,7 @@ function template (configuration, data) {
             </ul>
           </section>
 
-          <section id=gordonresearchconferences>
+          <section id=gordonresearchconferences class=recommended>
             <h2>Gordon Research Conferences Topics</h2>
 
             <p>
@@ -583,7 +583,7 @@ function template (configuration, data) {
             </ul>
           </section>
 
-          <section id=classifications>
+          <section id=classifications class=optional>
             <h2>Patent Classifications</h2>
 
             <p>
@@ -606,7 +606,7 @@ function template (configuration, data) {
             </div>
           </section>
 
-          <section id=links>
+          <section id=links class=optional>
             <h2>Other PDC Publications</h2>
 
             <p>
