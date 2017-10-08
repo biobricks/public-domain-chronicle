@@ -335,9 +335,8 @@ function template (configuration, data) {
             <h2>Affiliation</h2>
 
             <p>
-              Please provide the legal name of the commercial, academic,
-              nonprofit, governmental, or other organization you work for,
-              if any.
+              Please provide the legal name of your commercial, academic,
+              nonprofit, governmental, or other organization, if any.
             </p>
 
             <p>
