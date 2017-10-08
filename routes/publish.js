@@ -604,6 +604,14 @@ function template (configuration, data) {
               <a href=https://en.wikipedia.org/wiki/Oxidoreductase>oxidoreductases</a>.
             </p>
 
+            <p>
+              If you happen to know patent classifications in the
+              area of your finding, search for them below
+              Otherwise, feel free to skip this section.
+              There are many, many classifications, and it can be
+              difficult to find relevant ones from scratch.
+            </p>
+
             <div id=ipcSearch>
               <p>Search for patent classifications:</p>
               <input type=search id=ipcSearchBox>
