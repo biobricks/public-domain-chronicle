@@ -405,15 +405,7 @@ function template (configuration, data) {
           <p>
             If images or other data files help describe your
             finding or how to use it, attach them here.
-            Standard-format scientific data files, like
-            <a
-                href=http://zhanglab.ccmb.med.umich.edu/FASTA/
-                target=_blank>FASTA</a>
-            and
-            <a href=http://sbolstandard.org/ target=_blank>SBOL</a>
-            files for genetic information,
-            for example, are especially important.  Please
-            <em>don&rsquo;t</em> attach a preprint PDF or article.
+            Please <em>don&rsquo;t</em> attach a preprint PDF or article.
             Those best belong on a preprint server, like
             <a href=http://biorxiv.org target=_blank>bioR&chi;iv</a>,
             under a <a href=https://creativecommons.org>Creative Commons</a>
