@@ -221,7 +221,7 @@ ul.inputs li {
 }
 
 .recommended:after {
-  content: '(strongly recommended)';
+  content: '(recommended)';
 }
 
 dt {
