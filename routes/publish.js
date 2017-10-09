@@ -557,7 +557,7 @@ function template (configuration, data) {
           </section>
 
           <section id=gordonresearchconferences class=recommended>
-            <h2>Gordon Research Conferences Topics</h2>
+            <h2>Gordon Research Conferences</h2>
 
             <p>
               Which Gordon Research Conferences topics
