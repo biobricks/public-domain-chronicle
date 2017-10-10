@@ -285,11 +285,11 @@ function template (configuration, data) {
     <main>
       <p>
         Use this form to contribute scientific work to the public domain
-        by publishing it to the Public Domain Chronicle.  For more about
-        PDC, see
+        by publishing to the
         <a
             href=https://publicdomainchronicle.org
-            target=_blank>publicdomainchronicle.org</a>.
+            target=_blank
+          >Public Domain Chronicle</a>.
       </p>
 
       <p>
