@@ -24,6 +24,7 @@
     "once": "^1.4.0",
     "pct-minimum-documentation": "^1.0.0",
     "pdc-legal-tool": "^1.0.0",
+    "pdc-network": "^2.0.0",
     "pdc-publication-schema": "^1.0.0",
     "pdc-timestamp-schema": "^1.0.0",
     "pino": "^4.7.2",
