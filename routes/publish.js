@@ -279,6 +279,7 @@ function template (configuration, data) {
 <html lang=en>
   ${head(configuration, 'Publish')}
   <body>
+    <div class=wrapper>
     ${header()}
     ${nav()}
 
@@ -739,6 +740,7 @@ function template (configuration, data) {
         </section>
       </form>
     </main>
+    </div>
 
     ${footer()}
 

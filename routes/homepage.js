@@ -27,6 +27,7 @@ module.exports = function (request, response, configuration) {
 <html>
   ${head(configuration)}
   <body>
+    <div class=wrapper>
     ${header()}
     ${nav()}
     <main>
@@ -35,6 +36,7 @@ module.exports = function (request, response, configuration) {
         Public Domain Chronicle is a fast, easy, and free way to secure scientific methods and findings for the public domain.
       </p>
     </main>
+    </div>
     ${footer()}
   </body>
 </html>

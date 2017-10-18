@@ -59,6 +59,7 @@ module.exports = function (request, response, configuration) {
 <html>
 ${head(configuration, requestedVersion.title)}
 <body>
+  <div class=wrapper>
   ${header()}
   ${nav()}
   <main>
@@ -68,6 +69,7 @@ ${head(configuration, requestedVersion.title)}
     <p>${escape(requestedVersion.copyright)}</p>
     <p>${escape(requestedVersion.license)}</p>
   </main>
+  </div>
   ${footer()}
 </body>
 </html>

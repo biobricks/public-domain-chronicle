@@ -127,6 +127,7 @@ module.exports = function (request, response, configuration) {
 <html lang=en>
   ${head(configuration, data.title)}
   <body>
+    <div class=wrapper>
     ${header()}
     ${nav()}
     <main>
@@ -279,6 +280,7 @@ module.exports = function (request, response, configuration) {
       })}
       </ul>
     </main>
+    </div>
     ${footer()}
   </body>
 </html>

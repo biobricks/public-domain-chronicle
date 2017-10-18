@@ -29,11 +29,13 @@ module.exports = function (request, response, configuration) {
 <html lang=en>
   ${head(configuration, 'Not Found')}
   <body>
+    <div class=wrapper>
     ${header()}
     ${nav()}
     <main>
       <p>Not Found</p>
     </main>
+    </div>
     ${footer()}
   </body>
 </html>
