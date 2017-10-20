@@ -12,4 +12,8 @@
 - Tim Sakach
 - Brian Schulz
 
+Additional thanks to:
+
+- Bernardo Pollak, University of Cambridge
+
 Extra special thanks to early reviewers, who gave feedback on all fronts.  If you'd like to be mentioned here, please let me know!
