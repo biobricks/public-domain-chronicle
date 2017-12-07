@@ -29,7 +29,7 @@
     "pdc-timestamp-schema": "^1.0.0",
     "pino": "^4.10.2",
     "pino-http": "^2.6.2",
-    "pump": "^1.0.2",
+    "pump": "^2.0.0",
     "rfc822-date": "0.0.3",
     "run-parallel": "^1.1.6",
     "run-series": "^1.1.4",
