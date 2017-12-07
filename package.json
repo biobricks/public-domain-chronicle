@@ -5,7 +5,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "aaas-affiliates": "^1.0.0",
-    "ajv": "^5.3.0",
+    "ajv": "^5.5.1",
     "busboy": "^0.2.14",
     "concat-stream": "^1.6.0",
     "english-months": "^1.0.3",
