@@ -9,7 +9,7 @@
     "busboy": "^0.2.14",
     "concat-stream": "^1.6.0",
     "english-months": "^1.0.3",
-    "flush-write-stream": "^1.0.2",
+    "flush-write-stream": "^1.0.3",
     "form-data": "^2.3.1",
     "glob": "^7.1.2",
     "gordon-research-conference-topics": "^1.0.0",
