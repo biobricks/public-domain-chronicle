@@ -31,7 +31,7 @@
     "pino-http": "^2.6.2",
     "pump": "^2.0.0",
     "rfc822-date": "0.0.3",
-    "run-parallel": "^1.1.6",
+    "run-parallel": "^1.1.9",
     "run-series": "^1.1.4",
     "semver": "^5.4.1",
     "send": "^0.16.1",
