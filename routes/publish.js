@@ -707,7 +707,7 @@ function template (configuration, data) {
           <h2>Publish</h2>
 
           <p>
-            Submittions to PDC are published instantly, publicly, and
+            Submissions to PDC are published instantly, publicly, and
             permanently.  Please take a moment to review your responses.
           </p>
 
