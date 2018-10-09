@@ -50,7 +50,7 @@
     "dev-null": "^0.1.1",
     "husky": "^0.14.3",
     "istanbul": "^0.4.5",
-    "licensee": "^4.5.0",
+    "licensee": "^5.0.0",
     "lint-staged": "^6.0.0",
     "nsp": "^3.2.1",
     "rimraf": "^2.6.2",
