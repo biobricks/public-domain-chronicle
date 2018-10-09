@@ -33,7 +33,7 @@
     "rfc822-date": "0.0.3",
     "run-parallel": "^1.1.9",
     "run-series": "^1.1.8",
-    "semver": "^5.4.1",
+    "semver": "^5.5.1",
     "send": "^0.16.2",
     "simple-concat": "^1.0.0",
     "sodium-native": "^2.0.1",
