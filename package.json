@@ -55,7 +55,7 @@
     "nsp": "^3.2.1",
     "rimraf": "^2.6.2",
     "standard": "^10.0.3",
-    "string-to-stream": "^1.1.0",
+    "string-to-stream": "^1.1.1",
     "tape": "^4.9.0",
     "webdriverio": "^4.13.2"
   },
