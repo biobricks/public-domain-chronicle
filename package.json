@@ -14,7 +14,7 @@
     "glob": "^7.1.4",
     "gordon-research-conference-topics": "^1.0.0",
     "html-entities": "^1.2.1",
-    "http-hash": "^2.0.0",
+    "http-hash": "^2.0.1",
     "http-https": "^1.0.0",
     "json-parse-errback": "^2.0.1",
     "json-stable-stringify": "^1.0.1",
