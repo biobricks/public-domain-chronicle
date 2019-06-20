@@ -48,10 +48,8 @@
     "chromedriver": "^2.42.0",
     "depcheck": "^0.8.1",
     "dev-null": "^0.1.1",
-    "husky": "^2.4.1",
     "istanbul": "^0.4.5",
     "licensee": "^7.0.1",
-    "lint-staged": "^8.2.1",
     "nsp": "^3.2.1",
     "rimraf": "^2.6.3",
     "standard": "^12.0.1",
@@ -62,20 +60,12 @@
   "private": true,
   "scripts": {
     "postcoverage": "istanbul check-coverage coverage/coverage.json",
-    "depcheck": "depcheck --ignores husky,lint-staged,chromedriver,licensee,standard",
+    "depcheck": "depcheck --ignores chromedriver,licensee,standard",
     "lint": "standard",
     "nsp": "nsp check",
     "coverage": "NODE_ENV=test istanbul cover -- tape test/*.test.js",
     "test": "NODE_ENV=test tape test/*.test.js",
     "testserver": "NODE_ENV=test BASE_HREF=http://localhost:8080/ RECAPTCHA_PUBLIC=6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI RECAPTCHA_SECRET=6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe SOLICIT_FEEDBACK=1 node server.js 2>&1 | tee -a server.log",
     "licenses": "licensee --errors-only"
-  },
-  "lint-staged": {
-    "*.js": "standard"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
