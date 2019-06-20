@@ -38,7 +38,7 @@
     "simple-concat": "^1.0.0",
     "sodium-native": "^2.4.2",
     "split2": "^3.1.1",
-    "through2": "^2.0.3",
+    "through2": "^3.0.1",
     "touch": "^1.0.0",
     "us-patent-categories": "^1.1.0",
     "uuid": "^3.3.2",
