@@ -38,7 +38,7 @@ var through2 = require('through2')
 var timestampPath = require('./util/timestamp-path')
 var uuid = require('uuid/v4')
 
-var ajv = new AJV({allErrors: true})
+var ajv = new AJV({ allErrors: true })
 
 var publicationValidators = validatorsFor(require('pdc-publication-schema'))
 var timestampValidators = validatorsFor(require('pdc-timestamp-schema'))
@@ -351,7 +351,7 @@ function stamp (configuration, log, digest, callback) {
                       }
                     })
                   })
-                  .end(JSON.stringify({hash: digest}))
+                  .end(JSON.stringify({ hash: digest }))
               }
             }
           })

@@ -42,10 +42,10 @@ var xtend = require('xtend')
 
 var timestampSchema = latest(require('pdc-timestamp-schema'))
 
-var validatePublication = new AJV({allErrors: true})
+var validatePublication = new AJV({ allErrors: true })
   .compile(latest(require('pdc-publication-schema')))
 
-var validateTimestamp = new AJV({allErrors: true})
+var validateTimestamp = new AJV({ allErrors: true })
   .compile(timestampSchema)
 
 module.exports = function (configuration, log) {
@@ -60,7 +60,7 @@ module.exports = function (configuration, log) {
     runParallel(
       peers.map(function (peer) {
         return function (done) {
-          var peerLog = log.child({peer: peer.url.hostname})
+          var peerLog = log.child({ peer: peer.url.hostname })
           peerLog.info('replicating')
           replicatePeer(configuration, peerLog, peer, done)
         }
@@ -87,7 +87,7 @@ module.exports = function (configuration, log) {
 function replicatePeer (configuration, log, peer, done) {
   var request = xtend(peer.url, {
     path: peer.url.path + '/accessions?from=' + (peer.last + 1),
-    headers: {accept: 'text/csv'}
+    headers: { accept: 'text/csv' }
   })
   http.request(request)
     .once('error', function (error) {
@@ -106,7 +106,7 @@ function replicatePeer (configuration, log, peer, done) {
           })
         }),
         flushWriteStream.obj(function (publication, _, done) {
-          var recordLog = log.child({digest: publication.digest})
+          var recordLog = log.child({ digest: publication.digest })
           republish(configuration, recordLog, peer, publication, done)
         }),
         function (error) {
@@ -173,7 +173,7 @@ function republish (configuration, log, peer, publication, done) {
     fileExists(file, function (error, exists) {
       if (error) return done(error)
       haveRecord = exists
-      log.info({haveRecord: exists})
+      log.info({ haveRecord: exists })
       done()
     })
   }
@@ -187,7 +187,7 @@ function republish (configuration, log, peer, publication, done) {
     fileExists(file, function (error, exists) {
       if (error) return done(error)
       havePeerTimestamp = exists
-      log.info({havePeerTimestamp: exists})
+      log.info({ havePeerTimestamp: exists })
       done()
     })
   }
@@ -205,7 +205,7 @@ function republish (configuration, log, peer, publication, done) {
     } else {
       http.request(xtend(peer.url, {
         path: peer.url.path + '/publications/' + publication.digest,
-        headers: {accept: 'application/json'}
+        headers: { accept: 'application/json' }
       }))
         .once('error', function (error) {
           done(error)
@@ -278,7 +278,7 @@ function republish (configuration, log, peer, publication, done) {
     validatePublication(record)
     var errors = validatePublication.errors
     if (errors) {
-      log.info({errors: errors}, 'invalid publication')
+      log.info({ errors: errors }, 'invalid publication')
       var error = new Error('invalid record')
       error.validationErrors = errors
       return done(error)
@@ -302,7 +302,7 @@ function republish (configuration, log, peer, publication, done) {
     validateTimestamp(peerTimestamp)
     var errors = validateTimestamp.errors
     if (errors) {
-      log.info({errors: errors}, 'invalid timestamp')
+      log.info({ errors: errors }, 'invalid timestamp')
       var error = new Error('invalid timestamp')
       error.validationErrors = errors
       return done(error)
@@ -451,7 +451,7 @@ function republish (configuration, log, peer, publication, done) {
   function unlinkFiles (done) {
     runParallel(files.map(function (file) {
       return function (done) {
-        var fileLog = log.child({file: file})
+        var fileLog = log.child({ file: file })
         fs.unlink(file, function (error) {
           if (error) {
             fileLog.error(error)
@@ -467,7 +467,7 @@ function republish (configuration, log, peer, publication, done) {
 }
 
 function writeIfMissing (path, data, done) {
-  fs.writeFile(path, data, {flag: 'wx'}, function (error) {
+  fs.writeFile(path, data, { flag: 'wx' }, function (error) {
     if (error && error.code !== 'EEXIST') {
       done(error)
     } else {
@@ -486,7 +486,7 @@ function download (from, to, done) {
       contentType = response.headers['Content-Type']
       pump(
         response,
-        fs.createWriteStream(to, {flags: 'wx'}),
+        fs.createWriteStream(to, { flags: 'wx' }),
         function (error) {
           if (error) {
             if (error.code === 'EEXIST') {

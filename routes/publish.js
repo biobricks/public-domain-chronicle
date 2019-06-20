@@ -85,7 +85,7 @@ function post (request, response, configuration) {
   /* istanbul ignore next */
   try {
     // TODO:  Give busboy file count and size limits.
-    parser = new Busboy({headers: request.headers})
+    parser = new Busboy({ headers: request.headers })
   } catch (error) {
     response.statusCode = 400
     response.end()
@@ -308,11 +308,11 @@ function template (configuration, data) {
         </thead>
         <tbody>
           ${NETWORK
-              .filter(function (member) {
-                return member.server.fields
-              })
-              .map(function (member) {
-                return html`
+    .filter(function (member) {
+      return member.server.fields
+    })
+    .map(function (member) {
+      return html`
                   <tr>
                     <td>${member.server.fields.map(escape).join(' ')}</td>
                     <td>
@@ -329,8 +329,8 @@ function template (configuration, data) {
                     </td>
                   </tr>
                 `
-              })
-          }
+    })
+}
         </tbody>
       </table>
 
@@ -494,7 +494,7 @@ function template (configuration, data) {
 
             <ul class=shortListOfCheckBoxes>
               ${CATEGORIES.map(function (category) {
-                return html`
+    return html`
                 <li>
                   <label>
                     <input
@@ -503,20 +503,20 @@ function template (configuration, data) {
                         value="${escape(category.term)}">
                     ${escape(category.term)}
                     ${category.aka && (
-                      '(or ' +
+    '(or ' +
                       category.aka
                         .map(function (term) {
                           return escape('"' + term + '"')
                         })
                         .join(', ') +
                       ')'
-                    )}
+  )}
                     &mdash;
                     ${escape(category.definition)}
                   </label>
                 </li>
                 `
-              })}
+  })}
             </ul>
           </section>
 
@@ -532,7 +532,7 @@ function template (configuration, data) {
 
             <ul class=listOfCheckBoxes>
               ${data.journals.map(function (journal) {
-                return html`
+    return html`
                 <li>
                   <label>
                     <input
@@ -543,7 +543,7 @@ function template (configuration, data) {
                   </label>
                 </li>
                 `
-              })}
+  })}
             </ul>
           </section>
 
@@ -557,7 +557,7 @@ function template (configuration, data) {
 
             <ul class=listOfCheckBoxes>
               ${data.subjects.map(function (subject) {
-                return html`
+    return html`
                 <li>
                   <label>
                     <input
@@ -568,7 +568,7 @@ function template (configuration, data) {
                   </label>
                 </li>
                 `
-              })}
+  })}
             </ul>
           </section>
 
@@ -584,7 +584,7 @@ function template (configuration, data) {
 
             <ul class=listOfCheckBoxes>
               ${data.aaas.map(function (affiliate) {
-                return html`
+    return html`
                 <li>
                   <label>
                     <input
@@ -595,7 +595,7 @@ function template (configuration, data) {
                   </label>
                 </li>
                 `
-              })}
+  })}
             </ul>
           </section>
 
@@ -610,7 +610,7 @@ function template (configuration, data) {
 
             <ul class=listOfCheckBoxes>
               ${data.grc.map(function (topic) {
-                return html`
+    return html`
                 <li>
                   <label>
                     <input
@@ -621,7 +621,7 @@ function template (configuration, data) {
                   </label>
                 </li>
                 `
-              })}
+  })}
             </ul>
           </section>
 

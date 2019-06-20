@@ -50,12 +50,12 @@ var REPLICATION_INTERVAL = ENV.REPLICATION_INTERVAL
 
 var SOLICIT_FEEDBACK = !!ENV.SOLICIT_FEEDBACK
 
-var log = pino({name: NAME + '@' + VERSION})
+var log = pino({ name: NAME + '@' + VERSION })
 
 initialize(DIRECTORY, function (error, keypair) {
   if (error) {
   } else {
-    log.info({event: 'data', directory: DIRECTORY})
+    log.info({ event: 'data', directory: DIRECTORY })
     var configuration = {
       version: VERSION,
       hostname: HOSTNAME,
@@ -92,10 +92,10 @@ initialize(DIRECTORY, function (error, keypair) {
       // Start server.
       server.listen(PORT, function () {
         var boundPort = this.address().port
-        log.info({event: 'listening', port: boundPort})
+        log.info({ event: 'listening', port: boundPort })
       })
       // Start replicating peers.
-      var replicationLog = log.child({subsystem: 'replication'})
+      var replicationLog = log.child({ subsystem: 'replication' })
       setInterval(
         replicatePeers.bind(null, configuration, replicationLog),
         REPLICATION_INTERVAL
@@ -105,13 +105,13 @@ initialize(DIRECTORY, function (error, keypair) {
   }
 
   function logSignalAndShutDown () {
-    log.info({event: 'signal'})
+    log.info({ event: 'signal' })
     shutDown()
   }
 
   function shutDown () {
     server.close(function () {
-      log.info({event: 'closed server'})
+      log.info({ event: 'closed server' })
       process.exit()
     })
   }

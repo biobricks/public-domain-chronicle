@@ -20,7 +20,7 @@ var tape = require('tape')
 
 tape('GET /styles.css', function (test) {
   server(function (port, done) {
-    var request = {path: '/styles.css', port: port}
+    var request = { path: '/styles.css', port: port }
     http.get(request, function (response) {
       test.equal(
         response.statusCode, 200,

@@ -52,7 +52,7 @@ tape('GET /accessions CSV', function (test) {
         http.get({
           path: '/accessions/',
           port: port,
-          headers: {accept: 'text/csv'}
+          headers: { accept: 'text/csv' }
         }, function (response) {
           test.equal(
             response.statusCode, 200,
@@ -108,35 +108,35 @@ tape('GET /accessions?from CSV', function (test) {
           )
         }
       })
-    , function () {
-      http.get({
-        path: '/accessions?from=3',
-        port: port,
-        headers: {accept: 'text/csv'}
-      }, function (response) {
-        test.equal(
-          response.statusCode, 200,
-          'responds 200'
-        )
-        response.pipe(concat(function (body) {
-          body = body.toString()
+      , function () {
+        http.get({
+          path: '/accessions?from=3',
+          port: port,
+          headers: { accept: 'text/csv' }
+        }, function (response) {
           test.equal(
-            body.match(/[^\n]\n/g).length, 2,
-            'two lines'
+            response.statusCode, 200,
+            'responds 200'
           )
-          digests
-            .slice(2)
-            .forEach(function (digest) {
-              test.assert(
-                body.indexOf(digest) !== -1,
-                'contains digest'
-              )
-            })
-          done()
-          test.end()
-        }))
+          response.pipe(concat(function (body) {
+            body = body.toString()
+            test.equal(
+              body.match(/[^\n]\n/g).length, 2,
+              'two lines'
+            )
+            digests
+              .slice(2)
+              .forEach(function (digest) {
+                test.assert(
+                  body.indexOf(digest) !== -1,
+                  'contains digest'
+                )
+              })
+            done()
+            test.end()
+          }))
+        })
       })
-    })
   })
 })
 
@@ -171,7 +171,7 @@ tape('GET /accessions HTML', function (test) {
         http.get({
           path: '/accessions',
           port: port,
-          headers: {accept: 'text/html'}
+          headers: { accept: 'text/html' }
         }, function (response) {
           test.equal(
             response.statusCode, 200,
@@ -224,7 +224,7 @@ tape('GET /accessions RSS', function (test) {
         http.get({
           path: '/accessions',
           port: port,
-          headers: {accept: 'application/rss+xml'}
+          headers: { accept: 'application/rss+xml' }
         }, function (response) {
           test.equal(
             response.statusCode, 200,
@@ -255,7 +255,7 @@ tape('GET /accessions XML', function (test) {
     var request = {
       path: '/accessions',
       port: port,
-      headers: {accept: 'application/xml'}
+      headers: { accept: 'application/xml' }
     }
     http.get(request, function (response) {
       test.equal(
@@ -333,7 +333,7 @@ tape('GET /accessions/{created}', function (test) {
         http.get({
           path: location,
           port: port,
-          headers: {accept: 'text/html'}
+          headers: { accept: 'text/html' }
         }, function (response) {
           test.equal(
             response.statusCode, 200,

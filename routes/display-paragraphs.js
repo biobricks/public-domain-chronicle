@@ -20,24 +20,24 @@ module.exports = function (paragraphs) {
   return html`
     <ol>
       ${paragraphs.map(function (sentences) {
-        return html`
+    return html`
           <li>
             ${sentences.map(function (sentence) {
-              if (typeof sentence === 'string') {
-                return escape(sentence) + ' '
-              } else {
-                return html`
+    if (typeof sentence === 'string') {
+      return escape(sentence) + ' '
+    } else {
+      return html`
                   <ol>
                     ${sentence.map(function (item) {
-                      return html`<li>${escape(item)}</li>`
-                    })}
+    return html`<li>${escape(item)}</li>`
+  })}
                   </ol>
                 `
-              }
-            })}
+    }
+  })}
           </li>
         `
-      })}
+  })}
     </ol>
   `
 }

@@ -46,7 +46,7 @@ module.exports = function (directory, publication, done) {
             )
           }
         }
-      ),
+        ),
       function (error) {
         if (error) return done(error)
         done(null, timestamps, publicKeys)

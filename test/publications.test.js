@@ -70,7 +70,7 @@ tape('GET /publications/{created} JSON', function (test) {
         http.get({
           path: location,
           port: port,
-          headers: {accept: 'application/json'}
+          headers: { accept: 'application/json' }
         }, function (response) {
           test.equal(
             response.statusCode, 200,
@@ -117,7 +117,7 @@ tape('GET /publications/{created} HTML', function (test) {
         http.get({
           path: location,
           port: port,
-          headers: {accept: 'text/html'}
+          headers: { accept: 'text/html' }
         }, function (response) {
           test.equal(
             response.statusCode, 200,
@@ -164,7 +164,7 @@ tape('GET /publications/{created} XML', function (test) {
         http.get({
           path: location,
           port: port,
-          headers: {accept: 'application/xml'}
+          headers: { accept: 'application/xml' }
         }, function (response) {
           test.equal(
             response.statusCode, 415,

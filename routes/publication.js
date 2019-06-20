@@ -136,13 +136,13 @@ module.exports = function (request, response, configuration) {
       <p><code>${data.formattedDigest}</code></p>
 
       ${
-        data.name
-          ? html`
+  data.name
+    ? html`
             <h2>Contributor</h2>
             <p class=name>${escape(data.name)}</p>
           `
-          : html`<p>Published anonymously.</p>`
-      }
+    : html`<p>Published anonymously.</p>`
+}
 
       ${data.affiliation && html`
         <h2>Affiliation</h2>
@@ -154,25 +154,25 @@ module.exports = function (request, response, configuration) {
 
       <h2>Safety Notes</h2>
       ${
-        data.safety
-          ? data.safety.map(function (paragraph) {
-            return html`<p>${escape(paragraph)}</p>`
-          })
-          : html`<p>No safety notes.</p>`
-      }
+  data.safety
+    ? data.safety.map(function (paragraph) {
+      return html`<p>${escape(paragraph)}</p>`
+    })
+    : html`<p>No safety notes.</p>`
+}
 
       <h2>Attachments</h2>
 
       <ul>
       ${data.attachments.map(function (attachment) {
-        return html`
+    return html`
         <li>
           <a href="publications/${data.digest}/attachments/${attachment}">
             ${escape(attachment)}
           </a>
         </li>
         `
-      })}
+  })}
       </ul>
 
       ${data.attachments.length === 0 && html`<p>No attachments.</p>`}
@@ -181,57 +181,57 @@ module.exports = function (request, response, configuration) {
 
       <ul id=ussubjectmatter>
       ${
-        data.metadata &&
+  data.metadata &&
         data.metadata.ussubjectmatter &&
         data.metadata.ussubjectmatter.map(function (category) {
           return html`<li>Subject Matter Category: ${escape(category)}</li>`
         })
-      }
+}
       </ul>
 
       <ul id=journals>
       ${
-        data.metadata &&
+  data.metadata &&
         data.metadata.journals &&
         data.metadata.journals.map(function (journal) {
           return html`<li>Related Journal: ${escape(journal)}</li>`
         })
-      }
+}
       </ul>
 
       <ul id=naturesubjects>
       ${
-        data.metadata &&
+  data.metadata &&
         data.metadata.naturesubjects &&
         data.metadata.naturesubjects.map(function (subject) {
           return html`<li>Subject Keyword: ${escape(subject)}</li>`
         })
-      }
+}
       </ul>
 
       <ul id=aaasaffiliates>
       ${
-        data.metadata &&
+  data.metadata &&
         data.metadata.aaasaffiliates &&
         data.metadata.aaasaffiliates.map(function (affiliate) {
           return html`<li>AAAS Affiliate: ${escape(affiliate)}</li>`
         })
-      }
+}
       </ul>
 
       <ul id=gordonresearchconferences>
       ${
-        data.metadata &&
+  data.metadata &&
         data.metadata.gordonresearchconferences &&
         data.metadata.gordonresearchconferences.map(function (topic) {
           return html`<li>GRC topic: ${escape(topic)}</li>`
         })
-      }
+}
       </ul>
 
       <ul id=classifications>
       ${
-        data.metadata &&
+  data.metadata &&
         data.metadata.classifications &&
         data.metadata.classifications.map(function (ipc) {
           return html`
@@ -241,13 +241,13 @@ module.exports = function (request, response, configuration) {
             </li>
           `
         })
-      }
+}
       </ul>
 
       <ul id=links>
       ${data.links && data.links.map(function (link) {
-        return html`<li>Related PDC Publication: ${escape(link)}</li>`
-      })}
+    return html`<li>Related PDC Publication: ${escape(link)}</li>`
+  })}
       </ul>
 
       <h2>Versions</h2>
@@ -265,7 +265,7 @@ module.exports = function (request, response, configuration) {
 
       <ul>
       ${timestamps.map(function (timestamp) {
-        return html`
+    return html`
         <li>
           <dl>
             <dt>Published</dt>
@@ -277,7 +277,7 @@ module.exports = function (request, response, configuration) {
           </dl>
         </li>
         `
-      })}
+  })}
       </ul>
     </main>
     </div>

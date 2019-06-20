@@ -110,7 +110,7 @@ module.exports = function (request, response, configuration) {
       } else if (type === 'text/csv') {
         response.setHeader('Content-Type', 'text/csv; charset=ASCII')
         var options = request.query.from
-          ? {start: BYTES_PER_LINE * (parseInt(request.query.from) - 1)}
+          ? { start: BYTES_PER_LINE * (parseInt(request.query.from) - 1) }
           : {}
         fs.createReadStream(accessions, options)
           .once('error', /* istanbul ignore next */ function (error) {
@@ -120,7 +120,7 @@ module.exports = function (request, response, configuration) {
           })
           .pipe(response)
       } else if (type === 'text/html') {
-        var data = {accessions: []}
+        var data = { accessions: [] }
         var counter = 0
         pump(
           fs.createReadStream(accessions),
@@ -163,7 +163,7 @@ module.exports = function (request, response, configuration) {
         </thead>
         <tbody>
           ${data.accessions.map(function (accession) {
-            return html`
+    return html`
             <tr>
               <td>${escape(accession.number)}</td>
               <td>${escape(accession.timestamp)}</td>
@@ -174,7 +174,7 @@ module.exports = function (request, response, configuration) {
               </td>
             </tr>
             `
-          })}
+  })}
         </tbody>
       </table>
     </main>

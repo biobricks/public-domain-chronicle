@@ -168,10 +168,10 @@ function configurePatentSearch () {
                     var description = subgroup.length === 0
                       ? '(same as above)'
                       : subgroup
-                          .map(function (element) {
-                            return element.join(', ')
-                          })
-                          .join(' … ')
+                        .map(function (element) {
+                          return element.join(', ')
+                        })
+                        .join(' … ')
                     var li = document.createElement('li')
                     var label = document.createElement('label')
                     var input = document.createElement('input')

@@ -33,7 +33,7 @@ module.exports = function (directory, callback) {
       mkdirp.bind(null, tmp)
     ]),
     runParallel.bind(null, [
-      touch.bind(null, accessions, {force: true}),
+      touch.bind(null, accessions, { force: true }),
       function (done) {
         readKeypair(directory, function (error, read) {
           if (error) {

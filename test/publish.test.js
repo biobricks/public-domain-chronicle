@@ -22,7 +22,7 @@ var tape = require('tape')
 
 tape('GET /publish', function (test) {
   server(function (port, done) {
-    var request = {path: '/publish', port: port}
+    var request = { path: '/publish', port: port }
     http.get(request, function (response) {
       test.equal(
         response.statusCode, 200,

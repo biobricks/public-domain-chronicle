@@ -20,13 +20,13 @@ var routes = require('./routes')
 var notFound = require('./routes/not-found')
 
 module.exports = function (configuration, log) {
-  var pino = pinoHTTP({logger: log})
+  var pino = pinoHTTP({ logger: log })
   return function (request, response) {
     pino(request, response)
     response.setTimeout(
       configuration.timeout,
       /* istanbul ignore next */ function () {
-        response.log.error({event: 'timeout'})
+        response.log.error({ event: 'timeout' })
         response.statusCode = 408
         response.removeAllListeners()
         response.end()
