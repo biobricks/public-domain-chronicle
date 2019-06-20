@@ -53,7 +53,7 @@
     "licensee": "^5.0.0",
     "lint-staged": "^6.0.0",
     "nsp": "^3.2.1",
-    "rimraf": "^2.6.2",
+    "rimraf": "^2.6.3",
     "standard": "^10.0.3",
     "string-to-stream": "^1.1.1",
     "tape": "^4.9.1",
