@@ -7,4 +7,4 @@ script:
 - npm run lint
 - npm run licenses
 - npm run depcheck
-- npm run nsp
+- npm audit
