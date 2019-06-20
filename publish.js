@@ -47,6 +47,7 @@ function validatorsFor (schema) {
   return Object.keys(schema)
     .sort(semver.rcompare)
     .map(function (version) {
+      delete schema[version].$schema
       return {
         version: version,
         validate: ajv.compile(schema[version])
