@@ -62,7 +62,7 @@
   "private": true,
   "scripts": {
     "postcoverage": "istanbul check-coverage coverage/coverage.json",
-    "depcheck": "depcheck --ignores husky,lint-staged,chromedriver",
+    "depcheck": "depcheck --ignores husky,lint-staged,chromedriver,licensee,standard",
     "lint": "standard",
     "nsp": "nsp check",
     "coverage": "NODE_ENV=test istanbul cover -- tape test/*.test.js",
