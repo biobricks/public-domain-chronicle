@@ -57,7 +57,7 @@
     "standard": "^10.0.3",
     "string-to-stream": "^1.1.1",
     "tape": "^4.10.2",
-    "webdriverio": "^4.13.2"
+    "webdriverio": "^5.10.7"
   },
   "private": true,
   "scripts": {
