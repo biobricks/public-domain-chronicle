@@ -41,7 +41,7 @@
     "through2": "^4.0.2",
     "touch": "^3.1.0",
     "us-patent-categories": "^1.1.0",
-    "uuid": "^3.3.2",
+    "uuid": "^8.3.0",
     "xtend": "^4.0.2"
   },
   "devDependencies": {

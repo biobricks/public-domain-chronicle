@@ -36,7 +36,7 @@ var sodium = require('sodium-native')
 var stringify = require('json-stable-stringify')
 var through2 = require('through2')
 var timestampPath = require('./util/timestamp-path')
-var uuid = require('uuid/v4')
+var uuid = require('uuid').v4
 
 var ajv = new AJV({ allErrors: true })
 
