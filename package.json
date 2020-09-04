@@ -35,7 +35,7 @@
     "run-series": "^1.1.8",
     "semver": "^7.3.2",
     "send": "^0.17.1",
-    "simple-concat": "^1.0.0",
+    "simple-concat": "^1.0.1",
     "sodium-native": "^2.4.2",
     "split2": "^3.1.1",
     "through2": "^3.0.1",
