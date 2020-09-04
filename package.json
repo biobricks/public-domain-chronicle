@@ -27,7 +27,7 @@
     "pdc-network": "^2.0.0",
     "pdc-publication-schema": "^1.0.0",
     "pdc-timestamp-schema": "^1.0.0",
-    "pino": "^5.12.6",
+    "pino": "^6.5.1",
     "pino-http": "^4.2.0",
     "pump": "^3.0.0",
     "rfc822-date": "0.0.3",
