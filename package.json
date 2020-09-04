@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "chromedriver": "^2.42.0",
-    "depcheck": "^0.8.1",
+    "depcheck": "^1.2.0",
     "dev-null": "^0.1.1",
     "istanbul": "^0.4.5",
     "licensee": "^8.1.0",
