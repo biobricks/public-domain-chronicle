@@ -37,7 +37,7 @@
     "send": "^0.17.1",
     "simple-concat": "^1.0.1",
     "sodium-native": "^2.4.2",
-    "split2": "^3.1.1",
+    "split2": "^3.2.2",
     "through2": "^3.0.1",
     "touch": "^3.1.0",
     "us-patent-categories": "^1.1.0",
