@@ -11,7 +11,7 @@
     "english-months": "^1.0.3",
     "flush-write-stream": "^2.0.0",
     "form-data": "^2.4.0",
-    "glob": "^7.1.4",
+    "glob": "^7.1.6",
     "gordon-research-conference-topics": "^1.0.0",
     "html-entities": "^1.3.1",
     "http-hash": "^2.0.1",
